@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="socket.io/socket.io.js"></script>
+    <title>PoopTube</title>
+</head>
+
+<body onload="getcookiedata()">
+    <img id="plus" src="plus.png" class="plus">
+    <div id="topdisplay" class="topdisplay" >
+        <div id="profile" class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="box">
+        <div id="level"class="circle">
+            <span id="levelcount">25</span>
+        </div>
+        <div id="pro-bar" class="progress-bar"></div>
+        <div id="loading-progress" class="progress-bar"></div>
+        <img id="rating1" src="Rating shit_white.png" class="ratingImage">
+        <img id="rating2" src="Rating shit_white.png" class="ratingImage">
+        <img id="rating3" src="Rating shit_white.png" class="ratingImage">
+        <img id="rating4" src="Rating shit_white.png" class="ratingImage">
+        <img id="rating5" src="Rating shit_white.png" class="ratingImage">
+        <span id="score">0/5</span>
+        <div id="boxCircle" class="circle"></div>
+    </div>
+    <div class="login" id="loginEle">
+        <input type="text" id="username">
+        <input type="password" id="password">
+        <input type="checkbox" id="remember">
+        <button type="submit" id="login" onclick="logIn()">login</button>
+        
+    </div>
+    <div id="random ass divider">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    <div id="botbar" class="box">
+        <a href="chat.html"><img src="chat.png" class="boticon" id="chat"></a>
+        <a href="main.html"><img src="home.png" class="boticon" id="home"></a>
+        <a href="chat.html"><img src="dots.png" class="boticon" id="dots"></a>
+    </div>
+    <script src="script.js"></script>
+    <script>
+
+        
+        const socket = io();
+
+        socket.on("connect", () => {
+            console.log(socket.id);
+        })
+
+        const listener = (eventName, ...args) => {
+            console.log(eventName, args)
+        }
+
+        socket.onAny(listener);
+
+    </script>
+</body>
+</html>
